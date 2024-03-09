@@ -44,4 +44,39 @@ bash에서 따옴표(')로 감싼 문자열은 문자열 그대로 사용됨. `$
 # Hw5
 파일을 실행해보세요. 예를 들어, (./semester)라는 경로를 셸에 입력해보세요. 이것이 왜 작동하지 않는지 ls를 이용해 파악해보세요. (힌트: 파일의 비트 권한을 확인해보세요.)
 
+```bash
+/tmp/missing/semester                          
+zsh: permission denied: /tmp/missing/semester
+
+ls -al /tmp/missing/semester
+-rw-r--r--@ 1 yunhyeongeun  wheel  61 Mar  9 23:38 /tmp/missing/semester
+
+chmod 777 /tmp/missing/semester
+-rwxrwxrwx@ 1 yunhyeongeun  wheel  61 Mar  9 23:38 /tmp/missing/semester
+
+/tmp/missing/semester
+```
+
+# Hw6
+sh 인터프리터로 시작해 명령을 실행하고, semester 파일에 첫 인자로 주세요. (즉 sh semester 이렇게!). ./semester는 안되는데, 앞에 거는 왜 실행이 될까요?
+
+# Hw7
+chmod 프로그램을 살펴보세요. (man chmod를 사용해보세요.)
+
+# Hw8
+chmod를 활용해 sh semester 대신에 ./semester을 사용 가능하게 해보세요. sh을 이용해 이 파일을 해석해야 한다는 것을 셸이 어떻게 알까요? 이 페이지에서 셔뱅(shebang)에 대해서 더 알아보세요.
+```bash
+chmod 777 /tmp/missing/semeter 
+```
+
+# HW9
+`|` 와 `>`를 사용해 semester별 `“last modified”` 날짜 출력을 홈 디렉토리에 `last-modified.txt`라는 파일에 작성하세요.
+
+```bash
+sh semester | grep last-modified | cut -d " " -f2- > last-modified.txt 
+```
+
+# HW10
+노트북 배터리의 전원 레벨 또는 데스크탑 컴퓨터의 CPU 온도를 /sys에서 읽는 명령을 작성하십시오. 참고: 만약 macOS 사용자라면, 당신의 OS는 sysfs가 없기 때문에, 이 예제를 건너뛸 수 있습니다.
+
 
